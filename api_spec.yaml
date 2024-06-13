@@ -1,0 +1,113 @@
+paths:
+  /:
+    get:
+      summary: "Página de inicio"
+      responses:
+        200:
+          description: "Muestra la página de inicio"
+          
+  /login:
+    post:
+      summary: "Inicio de sesión"
+      parameters:
+        - name: usuario
+          in: formData
+          type: string
+          required: true
+          description: "Nombre de usuario"
+        - name: password
+          in: formData
+          type: string
+          required: true
+          description: "Contraseña del usuario"
+      responses:
+        200:
+          description: "Inicio de sesión exitoso"
+        400:
+          description: "Campos faltantes o credenciales incorrectas"
+
+  /instrucciones:
+    get:
+      summary: "Página de instrucciones"
+      responses:
+        200:
+          description: "Muestra las instrucciones del juego"
+
+  /profesor:
+    get:
+      summary: "Página del profesor"
+      responses:
+        200:
+          description: "Muestra información relevante para los profesores"
+
+  /mejores:
+    get:
+      summary: "Lista de los mejores estudiantes"
+      responses:
+        200:
+          description: "Lista de los mejores estudiantes por grupo"
+        204:
+          description: "No hay suficientes datos para mostrar"
+
+  /peores:
+    get:
+      summary: "Lista de los peores estudiantes"
+      responses:
+        200:
+          description: "Lista de los peores estudiantes por grupo"
+        204:
+          description: "No hay suficientes datos para mostrar"
+
+  /promedios:
+    get:
+      summary: "Promedios globales por nivel"
+      responses:
+        200:
+          description: "Muestra los promedios de puntuaciones por nivel"
+        204:
+          description: "No hay datos disponibles"
+
+  /alumnos:
+    post:
+      summary: "Buscar información de un estudiante específico"
+      parameters:
+        - name: numLista
+          in: formData
+          type: string
+          required: true
+          description: "Número de lista del estudiante"
+        - name: grupo
+          in: formData
+          type: string
+          required: true
+          description: "Grupo del estudiante"
+      responses:
+        200:
+          description: "Información detallada del estudiante"
+        404:
+          description: "Estudiante no encontrado"
+
+  /grupos:
+    get:
+      summary: "Datos de los grupos"
+      responses:
+        200:
+          description: "Distribución de puntajes y tiempo jugado por grupo"
+        204:
+          description: "No hay datos disponibles"
+
+  /genero:
+    get:
+      summary: "Puntaje promedio por género"
+      responses:
+        200:
+          description: "Muestra el puntaje promedio por género"
+        204:
+          description: "No hay datos disponibles"
+
+  /administracion:
+    get:
+      summary: "Página de administración"
+      responses:
+        200:
+          description: "Muestra la página de administración donde se pueden registrar estudiantes."
