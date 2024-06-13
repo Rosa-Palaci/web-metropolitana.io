@@ -1,0 +1,43 @@
+<title>{{ titulo }}</title>
+<link rel="icon" type="image/png" href="{{ url_for('static', filename='../static/img/escudo.png') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/navbar.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/instrucciones.css') }}">
+
+<nav class="navbar">
+    <a href="/">
+        <div class="logo">
+            <img src="../../static/img/escudo.png" alt="Logo de la Escuela Metropolitana">
+        </div>
+    </a>
+    
+   <div class="nav-links">
+        <button onclick="window.location.href='/'">Regresar</button>
+    </div>
+</nav>
+
+<!-- seccion principal -->
+    <main class="main">
+        <h1> Instrucciones del juego Metro-Market </h1>
+        <div class="instructions">
+            <div class="instruction-item">
+                <img src="../static/img/mouse.jpg" alt="Mouse para mover la dirección de la cámara">
+                <p>Usa el mouse para mover la dirección de la cámara</p>
+            </div>
+            <div class="instruction-item">
+                <img src="../static/img/flechas.jpg" alt="Flechas del teclado para mover al personaje">
+                <p>Usa las flechas del teclado para mover al personaje (avanzar y retroceder)</p>
+            </div>
+            <div class="instruction-item">
+                <img src="../static/img/awsd.jpg" alt="Teclas AWSD para mover al personaje">
+                <p>Usa las teclas "A", "W", "S", "D" para mover al personaje (avanzar y retroceder)</p>
+            </div>
+            <div class="instruction-item">
+                <img src="../static/img/tap.jpg" alt="Mueve el trackpad del teclado para mover la dirección de la cámara">
+                <p>Mueve el trackpad del teclado para mover la dirección de la cámara</p>
+            </div>
+        </div>
+    </main>
+
+<footer>
+    {% include "shared/footer.html" %}
+</footer>

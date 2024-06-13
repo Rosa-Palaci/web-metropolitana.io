@@ -1,0 +1,43 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ titulo }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/profesor.css') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='../static/img/escudo.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/navbar.css') }}">
+</head>
+<nav class="navbar">
+    <a href="/">
+        <div class="logo">
+            <img src="../../static/img/escudo.png" alt="Logo de la Escuela Metropolitana">
+        </div>
+    </a>
+    
+   <div class="nav-links">
+        <button onclick="window.location.href='/administracion'">Administración</button>
+        <button onclick="window.location.href='/'">Salir</button>
+    </div>
+</nav>
+
+    
+<body id="fondo">
+    <div class="titulo text-center">
+        <h1 class="titulos">Metro-Market</h1>
+    </div>
+    <h2>Selecciona la estadística que deseas ver</h2>
+
+    <div class="menu-opciones">
+        <button onclick="window.location.href='/mejores'" class="btn">Mejores</button>
+        <button onclick="window.location.href='/peores'" class="btn">Peores</button>
+        <button onclick="window.location.href='/promedios'" class="btn">Promedios</button>
+        <button onclick="window.location.href='/alumnos'" class="btn">Alumnos</button>
+        <button onclick="window.location.href='/grupos'" class="btn">Grupo</button>
+        <button onclick="window.location.href='/genero'" class="btn">Género</button>
+    </div>
+</body>
+    <footer>
+        {% include "shared/footer.html" %}
+    </footer>
+
+
+

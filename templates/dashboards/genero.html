@@ -1,0 +1,21 @@
+<link rel="stylesheet" href="{{url_for('static', filename='../static/css/navbar.css')}}">
+<link rel="icon" type="image/png" href="{{ url_for('static', filename='../static/img/escudo.png') }}">
+<title>{{ titulo }}</title>
+
+<nav class="navbar">
+    <a href="/">
+        <div class="logo">
+            <img src="/static/img/escudo.png" alt="Logo de la Escuela Metropolitana">
+        </div>
+    </a>
+    
+    <div class="nav-links">
+        <button onclick="location.href='{{ url_for('profesor') }}'">Regresar</button>
+    </div>
+</nav>
+<h1>Comparación de Puntajes por Género</h1>
+    {% if graphHTML %}
+        <div>{{ graphHTML|safe }}</div>
+    {% else %}
+        <p>{{ message }}</p>
+    {% endif %}

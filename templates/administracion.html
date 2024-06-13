@@ -1,0 +1,67 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ titulo }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/profesor.css') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='../static/img/escudo.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/navbar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/administracion.css') }}">
+
+</head>
+<nav class="navbar">
+    <a href="/">
+        <div class="logo">
+            <img src="../../static/img/escudo.png" alt="Logo de la Escuela Metropolitana">
+        </div>
+    </a>
+    
+   <div class="nav-links">
+        <button onclick="location.href='{{ url_for('profesor') }}'">Regresar</button>
+    </div>
+</nav>
+
+    
+<body id="fondo">
+
+    <div class="flash-messages">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert {{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </div>
+<div class="main">
+    <div class="titulo text-center">
+        <h1 class="titulos">Administración de alumnos</h1>
+    </div>
+    <!-- Formulario de registro de alumnos -->
+    <form action="/administracion" method="post">
+        <label for="num_lista">Número de Lista:</label>
+        <input type="number" id="num_lista" name="num_lista" required><br>
+        <label for="grupo">Grupo:</label>
+        <input type="text" id="grupo" name="grupo" required><br>
+        
+        <label for="genero">Género:</label>
+        <select id="genero" name="genero" required>
+            <option value="femenino">Femenino</option>
+            <option value="masculino">Masculino</option>
+        </select><br>
+        
+        <label for="ciclo_escolar">Ciclo Escolar:</label>
+        <input type="text" id="ciclo_escolar" name="ciclo_escolar" required><br>
+        
+        <button type="submit">Registrar Alumno</button>
+    </form>
+</div>
+     
+
+    
+</body>
+    <footer>
+        {% include "shared/footer.html" %}
+    </footer>
+
+
+

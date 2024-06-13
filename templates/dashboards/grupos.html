@@ -1,0 +1,37 @@
+<link rel="stylesheet" href="{{url_for('static', filename='../static/css/navbar.css')}}">
+<link rel="icon" type="image/png" href="{{ url_for('static', filename='../static/img/escudo.png') }}">
+<title>{{ titulo }}</title>
+
+<nav class="navbar">
+    <a href="/">
+        <div class="logo">
+            <img src="/static/img/escudo.png" alt="Logo de la Escuela Metropolitana">
+        </div>
+    </a>
+    
+    <div class="nav-links">
+        <button onclick="location.href='{{ url_for('profesor') }}'">Regresar</button>
+    </div>
+</nav>
+<h1>Distribución de Puntajes y Tiempo Jugado por Grupo</h1>
+
+    {% if graphHTML and graphHTML2 %}
+        <h2>Análisis de Puntajes Totales por Grupo</h2>
+        <p>
+            Esta gráfica de caja muestra la distribución de puntajes totales de los estudiantes divididos por grupos (A, B, C). 
+            Los diagramas de caja proporcionan una representación visual clara de la mediana, los cuartiles y los valores extremos 
+            de los puntajes. Esto ayuda a entender rápidamente la variabilidad del rendimiento y la consistencia dentro de cada grupo.
+        </p>
+        <div>{{ graphHTML|safe }}</div>
+
+        <h2>Análisis del Tiempo Jugado por Grupo</h2>
+        <p>
+            Esta gráfica de caja ilustra la distribución del tiempo jugado por los estudiantes, agrupado por sus respectivos grupos 
+            (A, B, C). Al igual que la gráfica de puntajes, este diagrama de caja muestra la mediana, los cuartiles y los valores atípicos, 
+            ofreciendo una visión comprensiva de cuánto tiempo dedican los estudiantes al juego educativo, lo cual puede correlacionarse 
+            con su implicación y potencialmente su rendimiento.
+        </p>
+        <div>{{ graphHTML2|safe }}</div>
+    {% else %}
+        <p>{{ message }}</p>
+    {% endif %}

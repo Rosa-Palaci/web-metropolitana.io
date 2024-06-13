@@ -1,0 +1,72 @@
+body {
+    background-color: #FAF5F0;
+    margin: 0;
+    padding: 0;
+}
+
+.profesores {
+    width: 52%; 
+    margin-right: 2%; 
+}
+
+.main {
+    display: flex;
+    align-items: center;
+}
+
+.container-flex {
+    display: flex;
+    align-items: flex-start; 
+    width: 80%; 
+}
+
+.form-login {
+    width: 50%;
+    padding-top: 8%;
+    padding-left: 10%;
+    border-radius: 8px;
+    align-content: center;
+}
+
+.form-login h1 {
+    text-align: center;
+    font-size: 36px;
+}
+
+input[type="text"], input[type="password"], input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 18px;
+    border: 1px solid #D9D9D9;
+    border-radius: 10px;
+    font-size: 26px;
+}
+
+input[type="submit"] {
+    background-color: #315180;
+    color: white;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #8FC027;
+}
+
+/*Mensaje de error*/
+.flash-messages .error {
+    color: red;
+    font-weight: bold;
+    padding: 10px;
+    background-color: #ffd4d4;
+    border: 1px solid red;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+.flash-messages .success {
+    color: green;
+    background-color: #d4ffd4;
+    border: 1px solid green;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 15px;
+}

@@ -1,0 +1,38 @@
+h1, h2 {
+    width: 100%;
+    text-align: center;
+}
+
+h1 {
+    font-size: 48px;
+}
+
+.menu-opciones {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+}
+
+.menu-opciones .btn {
+    padding: 40px;
+}
+
+.btn {
+    flex-basis: 48%;
+    margin-bottom: 10px;
+    background-color: #8FC027; /* Color inicial del fondo */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 35px;
+    transition: background 0.3s ease-in-out; /* Transición suave para el fondo */
+}
+
+.btn:hover {
+    background: linear-gradient(to right, #3A557C, #8FC027); /* Gradiente de fondo al pasar el cursor */
+}
+

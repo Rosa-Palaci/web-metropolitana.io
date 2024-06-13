@@ -1,0 +1,50 @@
+<link rel="stylesheet" href="{{url_for('static', filename='../static/css/navbar.css')}}">
+<link rel="stylesheet" href="{{url_for('static', filename='../static/css/alumnos.css')}}">
+<script src="{{ url_for('static', filename='js/search.js') }}"></script>
+<title>{{ titulo }}</title>
+
+<link rel="icon" type="image/png" href="{{ url_for('static', filename='../static/img/escudo.png') }}">
+
+<nav class="navbar">
+    <a href="/">
+        <div class="logo">
+            <img src="/static/img/escudo.png" alt="Logo de la Escuela Metropolitana">
+        </div>
+    </a>
+    
+    <div class="nav-links">
+        <button onclick="location.href='{{ url_for('profesor') }}'">Regresar</button>
+    </div>
+</nav>
+<h1>Busca un alumno</h1>
+<h3>Con su no.Lista y grupo</h3>
+<h3>Ejemplo: 10C</h3>
+
+<form method="post">
+    <label for="numLista">Número de Lista:</label>
+    <input type="text" id="numLista" name="numLista" required>
+
+    <label for="grupo">Grupo:</label>
+    <input type="text" id="grupo" name="grupo" required>
+
+    <button type="submit">Buscar</button>
+</form>
+
+{% if estudiante %}
+<div>
+    <h2>Detalles del Estudiante:</h2>
+    <p>ID: {{ estudiante['idEstudiante'] }}</p>
+    <p>Grupo: {{ estudiante['Grupo'] }}</p>
+    <p>Número de Lista: {{ estudiante['NumLista'] }}</p>
+    <p>Género: {{ estudiante['Genero'] }}</p>
+    <p>Ciclo Escolar: {{ estudiante['CicloEscolar'] }}</p>
+    <p>Nivel 1: {{ estudiante['Nivel1'] }}</p>
+    <p>Nivel 2: {{ estudiante['Nivel2'] }}</p>
+    <p>Nivel 3: {{ estudiante['Nivel3'] }}</p>
+    <p>Puntaje Total: {{ estudiante['PuntajeTotal'] }}</p>
+    <p>Promedio: {{ estudiante['Promedio'] }}</p>
+    <p>Tiempo Jugado: {{ estudiante['TiempoJugado'] }}</p>
+</div>
+{% elif message %}
+<p>{{ message }}</p>
+{% endif %}

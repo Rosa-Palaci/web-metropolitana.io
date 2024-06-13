@@ -1,0 +1,45 @@
+<link rel="stylesheet" href="{{url_for('static', filename='../static/css/navbar.css')}}">
+<link rel="stylesheet" href="{{url_for('static', filename='../static/css/mejores.css')}}">
+<link rel="icon" type="image/png" href="{{ url_for('static', filename='../static/img/escudo.png') }}">
+<title>{{ titulo }}</title>
+
+
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+<nav class="navbar">
+    <a href="/">
+        <div class="logo">
+            <img src="/static/img/escudo.png" alt="Logo de la Escuela Metropolitana">
+        </div>
+    </a>
+    
+    <div class="nav-links">
+        <button onclick="location.href='{{ url_for('profesor') }}'">Regresar</button>
+    </div>
+</nav>
+ <h1>Estudiantes con Mayores Puntajes por Grupo</h1>
+    {% for grupo, estudiantes in mejores_estudiantes.items() %}
+        <h2>Grupo {{ grupo }}</h2>
+        {% if estudiantes %}
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Número de Lista</th>
+                        <th>Grupo</th>
+                        <th>Puntaje Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for estudiante in estudiantes %}
+                        <tr>
+                            <td>{{ estudiante[0] }}</td>
+                            <td>{{ estudiante[1] }}</td>
+                            <td>{{ estudiante[2] }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>No hay suficientes datos para el Grupo {{ grupo }}.</p>
+        {% endif %}
+    {% endfor %}
